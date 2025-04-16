@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Philosophers-Catalogue", "Philosophers-Catalogue\Philosophers-Catalogue.csproj", "{A70E37BB-C0B7-45D9-9391-CC7CEAD97474}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{06D59514-E746-479E-9C40-11EC9BED7069}"
+	ProjectSection(SolutionItems) = preProject
+		compose.yaml = compose.yaml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Philosophers-Catalogue.DataAccess", "Philosophers-Catalogue.DataAccess\Philosophers-Catalogue.DataAccess.csproj", "{03142AB6-8720-4851-814B-F54D07FD19D9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A70E37BB-C0B7-45D9-9391-CC7CEAD97474}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A70E37BB-C0B7-45D9-9391-CC7CEAD97474}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A70E37BB-C0B7-45D9-9391-CC7CEAD97474}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A70E37BB-C0B7-45D9-9391-CC7CEAD97474}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03142AB6-8720-4851-814B-F54D07FD19D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03142AB6-8720-4851-814B-F54D07FD19D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03142AB6-8720-4851-814B-F54D07FD19D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03142AB6-8720-4851-814B-F54D07FD19D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+EndGlobal

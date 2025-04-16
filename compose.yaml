@@ -1,0 +1,21 @@
+﻿services:
+  philosophers-catalogue-db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: philosophers
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - philosophers-catalogue-db:/var/lib/postgresql/data
+    restart: unless-stopped
+  
+  philosophers-catalogue:
+    image: philosophers-catalogue
+    build:
+      context: .
+      dockerfile: Philosophers-Catalogue/Dockerfile
+
+volumes:
+  philosophers-catalogue-db:

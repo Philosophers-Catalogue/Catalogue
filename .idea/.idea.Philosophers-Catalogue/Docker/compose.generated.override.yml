@@ -1,0 +1,21 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  philosophers-catalogue:
+    build:
+      context: "C:\\Диплом\\Philosophers-Catalogue"
+      dockerfile: "Philosophers-Catalogue/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net9.0/Philosophers-Catalogue.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "philosophers-catalogue:dev"
+    ports: []
+    volumes:
+    - "C:\\Диплом\\Philosophers-Catalogue\\Philosophers-Catalogue:/app:rw"
+    - "C:\\Диплом\\Philosophers-Catalogue:/src:rw"
+    - "C:\\Users\\USER\\.nuget\\packages:/home/app/.nuget/packages"
+    working_dir: "/app"

@@ -1,0 +1,3 @@
+@Philosophers_Catalogue_HostAddress = http://localhost:5031
+GET /Philosophers/GetPhilosophers
+###
