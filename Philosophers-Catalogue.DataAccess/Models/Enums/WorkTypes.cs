@@ -5,7 +5,7 @@ public enum WorkTypes
 {
     None = 0,
     Interview = 1,
-    Essay = 2, 
+    Essay = 2,
     Lecture = 4,
     Book = 8,
     Collection = 16,

@@ -1,3 +1,5 @@
+using Philosophers_Catalogue.DataAccess.Models;
+using Philosophers_Catalogue.DataAccess.Models.Enums;
 using Quartz;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +16,9 @@ builder.Services.AddNpgsql<PhilosophersCatalogueDbContext>(
     builder.Configuration.GetValue<string>("ConnectionStrings:DefaultConnection"), opt =>
         opt
             .UseNodaTime()
+            .MapEnum<WorkTypes>()
+            .MapEnum<InteractionType>()
+            .MapEnum<ItemType>()
             .EnableRetryOnFailure());
 
 builder.Services.AddAuthentication(NegotiateDefaults.AuthenticationScheme)
@@ -39,7 +44,6 @@ var app = builder.Build();
 
 await MigrateAsync();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
