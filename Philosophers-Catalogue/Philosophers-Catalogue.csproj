@@ -22,7 +22,7 @@
         <PackageReference Include="Npgsql.NodaTime" Version="9.0.3" />
         <PackageReference Include="Quartz" Version="3.14.0" />
         <PackageReference Include="Quartz.Extensions.Hosting" Version="3.14.0" />
-        <PackageReference Include="Scalar.AspNetCore" Version="2.1.6" />
+        <PackageReference Include="Scalar.AspNetCore" Version="2.2.7"/>
     </ItemGroup>
 
     <ItemGroup>
@@ -33,6 +33,10 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Philosophers-Catalogue.DataAccess\Philosophers-Catalogue.DataAccess.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Folder Include="Constants\"/>
     </ItemGroup>
 
 </Project>

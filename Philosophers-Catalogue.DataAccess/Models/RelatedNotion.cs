@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace Philosophers_Catalogue.DataAccess.Models;
+namespace Philosophers_Catalogue.Models;
 
 [PrimaryKey(nameof(NotionIdFrom), nameof(NotionIdTo))]
 public class RelatedNotion

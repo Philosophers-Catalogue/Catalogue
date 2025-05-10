@@ -3,10 +3,9 @@ using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
 using NodaTime;
 
-namespace Philosophers_Catalogue.DataAccess.Models;
+namespace Philosophers_Catalogue.Models;
 
 [Index(nameof(Name), IsUnique = true)]
-// [Index(nameof(Era))]
 public class Philosopher
 {
     public Guid Id { get; set; }
@@ -20,12 +19,14 @@ public class Philosopher
     public LocalDate DeathDate { get; set; }
     public bool IsFemale { get; set; }
 
-    public List<Branch> Branches { get; set; } = [];
-    
+
     public Instant CreatedAt { get; set; }
     public Instant UpdatedAt { get; set; }
 
     [Timestamp]
     [UsedImplicitly]
-    public required uint Version { get; set; }
+    public uint Version { get; set; }
+
+    public ICollection<Branch> Branches { get; set; } = new List<Branch>();
+    public ICollection<Work> Works { get; set; } = new List<Work>();
 }

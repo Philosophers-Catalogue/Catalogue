@@ -1,10 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using JetBrains.Annotations;
 using NodaTime;
 using NpgsqlTypes;
+using Philosophers_Catalogue.Models.Enums;
 
-namespace Philosophers_Catalogue.DataAccess.Models;
+namespace Philosophers_Catalogue.Models;
 
+[PublicAPI]
 public class Work
 {
     public Guid Id { get; set; }
@@ -16,7 +18,7 @@ public class Work
     public string? Description { get; set; }
 
     public int? PublicationYear { get; set; }
-    public long? PrimaryAuthorId { get; set; }
+    public Guid? PrimaryAuthorId { get; set; }
     public Uri? ExternalUrl { get; set; }
     public required NpgsqlTsVector Embeddings { get; set; } 
 
@@ -27,10 +29,9 @@ public class Work
     public WorkTypes Type { get; set; }
 
     [ForeignKey(nameof(PrimaryAuthorId))]
-    public virtual Philosopher? PrimaryAuthor { get; set; }
+    public Philosopher? PrimaryAuthor { get; set; }
 
-    public virtual ICollection<Philosopher> AdditionalAuthors { get; set; } = new List<Philosopher>();
-    public virtual ICollection<ItemBranch> Branches { get; set; } = new List<ItemBranch>();
-    public virtual ICollection<ItemCategorySchool> CategoriesSchools { get; set; } = new List<ItemCategorySchool>();
-    public virtual ICollection<ItemNotion> Notions { get; set; } = new List<ItemNotion>();
+    public ICollection<ItemBranch> Branches { get; set; } = new List<ItemBranch>();
+    public ICollection<CategorySchool> CategoriesSchools { get; set; } = new List<CategorySchool>();
+    public ICollection<Notion> Notions { get; set; } = new List<Notion>();
 }

@@ -1,5 +1,7 @@
-using Philosophers_Catalogue.DataAccess.Models;
-using Philosophers_Catalogue.DataAccess.Models.Enums;
+using Philosophers_Catalogue;
+using Philosophers_Catalogue.Controllers;
+using Philosophers_Catalogue.Models;
+using Philosophers_Catalogue.Models.Enums;
 using Quartz;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,6 +23,9 @@ builder.Services.AddNpgsql<PhilosophersCatalogueDbContext>(
             .MapEnum<ItemType>()
             .EnableRetryOnFailure());
 
+builder.Services.AddIdentity<User, ApplicationRole>()
+    .AddEntityFrameworkStores<PhilosophersCatalogueDbContext>();
+
 builder.Services.AddAuthentication(NegotiateDefaults.AuthenticationScheme)
     .AddNegotiate();
 
@@ -38,6 +43,9 @@ builder.Services.AddQuartz(q =>
 
 builder.Services.AddQuartzHostedService(opt => opt.WaitForJobsToComplete = true);
 
+builder.Services.AddHttpClient<WikipediaApiParser>(opt =>
+    opt.BaseAddress = new Uri(builder.Configuration.GetValue<string>("Wikipedia:BaseUrl") ?? string.Empty));
+
 builder.Services.AddAuthorization(options => { options.FallbackPolicy = options.DefaultPolicy; });
 
 var app = builder.Build();
@@ -54,6 +62,10 @@ app.UseHttpsRedirection();
 
 
 await app.RunAsync();
+
+app.SetDeveloperEndpoints();
+
+return;
 
 async Task MigrateAsync()
 {

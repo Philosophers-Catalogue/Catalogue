@@ -1,4 +1,4 @@
-﻿namespace Philosophers_Catalogue.DataAccess.Models;
+﻿namespace Philosophers_Catalogue.Models.Enums;
 
 [Flags]
 public enum WorkTypes

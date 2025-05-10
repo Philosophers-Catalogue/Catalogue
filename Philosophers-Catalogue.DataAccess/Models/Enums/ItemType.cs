@@ -1,4 +1,4 @@
-﻿namespace Philosophers_Catalogue.DataAccess.Models.Enums;
+﻿namespace Philosophers_Catalogue.Models.Enums;
 
 public enum ItemType
 {

@@ -1,16 +1,12 @@
-﻿using NodaTime;
+﻿using Microsoft.AspNetCore.Identity;
+using NodaTime;
 
-namespace Philosophers_Catalogue.DataAccess.Models;
+namespace Philosophers_Catalogue.Models;
 
-public class User
+public class User : IdentityUser<Guid>
 {
-    public Guid Id { get; set; }
-    public required string Name { get; set; }
-    public required string PasswordHash { get; set; }
-    public required string Email { get; set; }
-    
     public Instant CreatedAt { get; set; }
     public Instant UpdatedAt { get; set; }
-    
-    public virtual ICollection<Interaction> Interactions { get; set; } = new List<Interaction>();
+
+    public ICollection<Interaction> Interactions { get; set; } = new List<Interaction>();
 }

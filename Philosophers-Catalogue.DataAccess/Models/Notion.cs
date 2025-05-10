@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using NodaTime;
 
-namespace Philosophers_Catalogue.DataAccess.Models;
+namespace Philosophers_Catalogue.Models;
 
 public class Notion
 {
@@ -21,8 +21,8 @@ public class Notion
     public Instant UpdatedAt { get; set; }
 
     // Navigation Properties
-    public virtual ICollection<ItemBranch> Branches { get; set; } = new List<ItemBranch>();
-    public virtual ICollection<ItemCategorySchool> CategoriesSchools { get; set; } = new List<ItemCategorySchool>();
-    public virtual ICollection<ItemNotion> RelatedItems { get; set; } = new List<ItemNotion>(); // Works/Philosophers related to this notion
+    public virtual ICollection<Branch> Branches { get; set; } = new List<Branch>();
+    public virtual ICollection<CategorySchool> CategoriesSchools { get; set; } = new List<CategorySchool>();
+    public virtual ICollection<Work> RelatedItems { get; set; } = new List<Work>(); 
     public virtual ICollection<RelatedNotion> RelatedNotions { get; set; } = new List<RelatedNotion>();
 }

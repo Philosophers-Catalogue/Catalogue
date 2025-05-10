@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using NodaTime;
 
-namespace Philosophers_Catalogue.DataAccess.Models;
+namespace Philosophers_Catalogue.Models;
 
 [Index(nameof(Name), IsUnique = true)]
 public class CategorySchool
@@ -15,19 +16,17 @@ public class CategorySchool
     public required string Name { get; set; }
 
     [Column(TypeName = "text")]
+    [SuppressMessage("ReSharper", "EntityFramework.ModelValidation.UnlimitedStringLength")]
     public string? Description { get; set; }
 
-    [Column("parent_category_school_id")]
-    public int? ParentCategorySchoolId { get; set; } // Nullable FK for hierarchy
+    public Guid? ParentCategorySchoolId { get; set; }
 
-    [Column("created_at")]
     public Instant CreatedAt { get; set; }
 
-    [Column("updated_at")]
     public Instant UpdatedAt { get; set; }
 
     [ForeignKey(nameof(ParentCategorySchoolId))]
-    public virtual CategorySchool? ParentCategorySchool { get; set; }
-    public virtual ICollection<CategorySchool> ChildCategoriesSchools { get; set; } = new List<CategorySchool>();
-    public virtual ICollection<ItemCategorySchool> RelatedItems { get; set; } = new List<ItemCategorySchool>();
+    public CategorySchool? ParentCategorySchool { get; set; }
+
+    public ICollection<CategorySchool> ChildCategoriesSchools { get; set; } = new List<CategorySchool>();
 }

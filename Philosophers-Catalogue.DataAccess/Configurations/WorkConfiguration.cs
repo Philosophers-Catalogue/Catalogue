@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Philosophers_Catalogue.DataAccess.Models;
+using Philosophers_Catalogue.Models;
 
-namespace Philosophers_Catalogue.DataAccess.Configurations;
+namespace Philosophers_Catalogue.Configurations;
 
 public class WorkConfiguration : IEntityTypeConfiguration<Work>
 {
@@ -13,5 +13,11 @@ public class WorkConfiguration : IEntityTypeConfiguration<Work>
                 work => new { work.Title, work.Description })
             .HasIndex(w => w.Embeddings)
             .HasMethod("GIN");
+
+        builder
+            .HasOne(w => w.PrimaryAuthor)
+            .WithMany(p => p.Works)
+            .HasForeignKey(w => w.PrimaryAuthorId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

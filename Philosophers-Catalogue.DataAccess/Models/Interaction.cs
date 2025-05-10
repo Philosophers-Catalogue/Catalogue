@@ -2,9 +2,9 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 using NodaTime;
-using Philosophers_Catalogue.DataAccess.Models.Enums;
+using Philosophers_Catalogue.Models.Enums;
 
-namespace Philosophers_Catalogue.DataAccess.Models;
+namespace Philosophers_Catalogue.Models;
 
 [Index(nameof(UserId))]
 [Index(nameof(ItemId))]
