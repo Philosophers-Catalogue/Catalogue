@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Philosophers_Catalogue.Data;
 using Philosophers_Catalogue.Models;
 
 namespace Philosophers_Catalogue.Configurations;
@@ -17,5 +18,7 @@ public class RelatedNotionConfiguration : IEntityTypeConfiguration<RelatedNotion
             .WithMany()
             .HasForeignKey(rn => rn.NotionIdTo)
             .OnDelete(DeleteBehavior.Restrict);
+
+        builder.HasData(PhilosophySeedData.GetRelatedNotions());
     }
 }

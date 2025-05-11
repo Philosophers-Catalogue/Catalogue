@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Philosophers_Catalogue.Data;
 using Philosophers_Catalogue.Models;
 
 namespace Philosophers_Catalogue;
@@ -25,6 +26,12 @@ public class PhilosophersCatalogueDbContext(DbContextOptions<PhilosophersCatalog
     {
         builder.ApplyConfigurationsFromAssembly(GetType().Assembly);
 
+        builder.Entity<Branch>()
+            .HasData(PhilosophySeedData.GetBranches());
+
+        builder.Entity<CategorySchool>()
+            .HasData(PhilosophySeedData.GetCategorySchools());
+        
         base.OnModelCreating(builder);
     }
 }

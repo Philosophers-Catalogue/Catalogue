@@ -1,4 +1,5 @@
 using Philosophers_Catalogue;
+using Philosophers_Catalogue.Constants;
 using Philosophers_Catalogue.Controllers;
 using Philosophers_Catalogue.Models;
 using Philosophers_Catalogue.Models.Enums;
@@ -12,22 +13,21 @@ builder.WebHost.UseDefaultServiceProvider(opt =>
     opt.ValidateScopes = true;
 });
 
+builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddOpenApi();
 
 builder.Services.AddNpgsql<PhilosophersCatalogueDbContext>(
     builder.Configuration.GetValue<string>("ConnectionStrings:DefaultConnection"), opt =>
-        opt
+        opt 
             .UseNodaTime()
             .MapEnum<WorkTypes>()
             .MapEnum<InteractionType>()
             .MapEnum<ItemType>()
             .EnableRetryOnFailure());
 
-builder.Services.AddIdentity<User, ApplicationRole>()
+builder.Services.AddIdentityApiEndpoints<User>()
     .AddEntityFrameworkStores<PhilosophersCatalogueDbContext>();
-
-builder.Services.AddAuthentication(NegotiateDefaults.AuthenticationScheme)
-    .AddNegotiate();
 
 builder.Services.AddQuartz(q =>
 {
@@ -36,17 +36,27 @@ builder.Services.AddQuartz(q =>
 
     q.AddTrigger(opt => opt
         .ForJob(jobKey)
+        .StartAt(new DateTimeOffset(DateTime.MaxValue))
         .WithSimpleSchedule(b => b
-            .WithIntervalInHours(48)
+            .WithIntervalInHours(128)
             .RepeatForever()));
 });
 
 builder.Services.AddQuartzHostedService(opt => opt.WaitForJobsToComplete = true);
 
-builder.Services.AddHttpClient<WikipediaApiParser>(opt =>
-    opt.BaseAddress = new Uri(builder.Configuration.GetValue<string>("Wikipedia:BaseUrl") ?? string.Empty));
+builder.Services.AddHttpClient(WikipediaConstants.RuWikiClientName, opt =>
+    {
+        opt.BaseAddress = new Uri(builder.Configuration.GetValue<string>("Wikipedia:RuWikiBaseUrl") ?? string.Empty);
+        opt.DefaultRequestHeaders.UserAgent.ParseAdd("Philosophers_Catalogue_Bot/1.0");
+    }
+);
 
-builder.Services.AddAuthorization(options => { options.FallbackPolicy = options.DefaultPolicy; });
+builder.Services.AddHttpClient(WikipediaConstants.WikiDataClientName, opt =>
+    {
+        opt.BaseAddress = new Uri(builder.Configuration.GetValue<string>("Wikipedia:WikiDataBaseUrl") ?? string.Empty);
+        opt.DefaultRequestHeaders.UserAgent.ParseAdd("Philosophers_Catalogue_Bot/1.0");
+    }
+);
 
 var app = builder.Build();
 
@@ -56,14 +66,14 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
     app.MapScalarApiReference();
+    app.SetDeveloperEndpoints();
 }
+
+app.MapIdentityApi<User>();
 
 app.UseHttpsRedirection();
 
-
 await app.RunAsync();
-
-app.SetDeveloperEndpoints();
 
 return;
 

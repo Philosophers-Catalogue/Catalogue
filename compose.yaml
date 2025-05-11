@@ -13,6 +13,8 @@
   
   philosophers-catalogue:
     image: philosophers-catalogue
+    ports:
+      - "8080:8080"
     build:
       context: .
       dockerfile: Philosophers-Catalogue/Dockerfile

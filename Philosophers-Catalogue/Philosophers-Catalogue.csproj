@@ -11,11 +11,12 @@
     <ItemGroup>
         <PackageReference Include="JetBrains.Annotations" Version="2025.1.0-eap1" />
         <PackageReference Include="Microsoft.AspNetCore.Authentication.Negotiate" Version="9.0.3"/>
-        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.3"/>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.3">
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.4"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.4">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+        <PackageReference Include="MongoDB.Driver" Version="3.4.0"/>
         <PackageReference Include="NodaTime" Version="3.2.2" />
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.NodaTime" Version="9.0.4" />
@@ -33,10 +34,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Philosophers-Catalogue.DataAccess\Philosophers-Catalogue.DataAccess.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <Folder Include="Constants\"/>
     </ItemGroup>
 
 </Project>
