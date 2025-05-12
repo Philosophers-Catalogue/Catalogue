@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 using JetBrains.Annotations;
 using NodaTime;
 using NpgsqlTypes;
@@ -16,10 +17,18 @@ public class Work : IWikipediaItem
     public int? WikipediaId { get; set; }
 
     [MaxLength(128)]
-    public required string Name { get; set; }
+    public required string NameEn { get; set; }
+
+    [MaxLength(128)]
+    public required string NameRu { get; set; }
 
     [Column(TypeName = "text")]
-    public string? Description { get; set; }
+    [SuppressMessage("ReSharper", "EntityFramework.ModelValidation.UnlimitedStringLength")]
+    public string? DescriptionEn { get; set; }
+
+    [Column(TypeName = "text")]
+    [SuppressMessage("ReSharper", "EntityFramework.ModelValidation.UnlimitedStringLength")]
+    public string? DescriptionRu { get; set; }
 
     public int? PublicationYear { get; set; }
     public Guid? PrimaryAuthorId { get; set; }

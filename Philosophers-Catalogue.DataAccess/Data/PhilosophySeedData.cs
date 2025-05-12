@@ -6,17 +6,17 @@ namespace Philosophers_Catalogue.Data;
 
 public static class PhilosophySeedData
 {
-    // Define Instants for CreatedAt/UpdatedAt
+    // Определяем момент времени для CreatedAt/UpdatedAt
     private static readonly Instant DefaultTime = Instant.FromUtc(2025, 1, 1, 0, 0);
 
-    // --- IDs for Branches ---
+    // --- ID для ветвей ---
     private static readonly Guid AestheticsBranchId = new("a19db7ce-cf0c-4dc1-bf2a-ec4f192d1240");
     private static readonly Guid EpistemologyBranchId = new("9b99ebf2-d3f7-4421-a9df-3d6a8cfa8e11");
     private static readonly Guid EthicsBranchId = new("73a1b7a9-9be5-4eb2-a5bc-b703b4e3c2e5");
     private static readonly Guid LogicBranchId = new("d4623a52-4e63-42e6-b8a3-8750ad264f7c");
     private static readonly Guid MetaphysicsBranchId = new("9f04ed88-7f30-43ef-ae69-c3731b802496");
 
-// --- IDs for Philosophers ---
+// --- ID для философов ---
     public static readonly Guid PlatoId = new("a228c5ef-ec5e-4eb0-b9a3-04ea1579fae0");
     public static readonly Guid AristotleId = new("c0a792dd-3495-42ea-8011-dcc1e3702cf5");
     public static readonly Guid KantId = new("a72d3eac-0d82-4225-8bb3-cbe47c154b6d");
@@ -38,7 +38,7 @@ public static class PhilosophySeedData
     public static readonly Guid ArendtId = new("e93bb57f-c81d-4a4f-b5ae-fbcb3493c0e7");
     public static readonly Guid FoucaultId = new("25579215-4d3e-4205-981a-27ef7083a83c");
 
-// --- IDs for Works ---
+// --- ID для работ ---
     public static readonly Guid RepublicId = new("3eb03c5e-d5a6-4704-833a-c7d41d223089");
     public static readonly Guid NicomacheanEthicsId = new("86b5e3f1-5b32-42f1-94b3-948c0623727e");
     public static readonly Guid CritiquePureReasonId = new("c6a32d79-d78c-4b5e-90aa-1a680d7fc130");
@@ -60,7 +60,7 @@ public static class PhilosophySeedData
     public static readonly Guid HumanConditionId = new("14a7d015-2ea1-4917-a67d-79050a8c2284");
     public static readonly Guid DisciplineAndPunishId = new("3f1b9e6a-39f1-4f33-9ea5-7b6a68a9e267");
 
-// --- IDs for CategorySchools ---
+// --- ID для категорий/школ ---
     public static readonly Guid PlatonismId = new("a1a347a7-c12a-4eb7-a13c-72a623ff7a1e");
     public static readonly Guid AristotelianismId = new("43c03a85-8af5-4bc3-9a2c-7b34cabc8dbb");
     public static readonly Guid KantianismId = new("4c1c75a3-5bd2-4fcb-9a37-2a9912a6d63f");
@@ -82,7 +82,7 @@ public static class PhilosophySeedData
     public static readonly Guid IdealismId = new("5a4b54cb-36b7-4f9e-a028-3347d7c38de0");
     public static readonly Guid RealismId = new("f1cb027b-7f7e-4645-8668-b1526fdb7c86");
 
-// --- IDs for Concepts ---
+// --- ID для понятий ---
     public static readonly Guid FormsId = new("b624a80b-2594-4f57-b300-35dfd470087e");
     public static readonly Guid CategoricalImperativeId = new("8261284d-1b86-432f-bd91-b6c5d8f9f191");
     public static readonly Guid UbermenschId = new("e403af49-1a31-4dd9-984e-43b1dce3b43f");
@@ -97,7 +97,7 @@ public static class PhilosophySeedData
     public static readonly Guid SyllogismId = new("f5ce7bd6-3802-45ae-875b-24b729c42f15");
     public static readonly Guid MonadId = new("169ae31e-4083-4a0f-8ea0-06ccf1e2f502");
     public static readonly Guid NoemaId = new("0055f212-4e67-4aa5-a1a3-3f7c05d2125f");
-    public static readonly Guid SobornostId = new("72e3c381-693e-46ae-b6d4-c74ed0e03f30"); // Russian notion
+    public static readonly Guid SobornostId = new("72e3c381-693e-46ae-b6d4-c74ed0e03f30"); // Русское понятие
 
 
     public static Branch[] GetBranches()
@@ -106,25 +106,33 @@ public static class PhilosophySeedData
         [
             new Branch
             {
-                Id = AestheticsBranchId, Name = "Эстетика", Description = "Philosophical study of beauty and taste."
+                Id = AestheticsBranchId, NameRu = "Эстетика", NameEn = "Aesthetics",
+                DescriptionRu = "Философское учение о сущности и формах прекрасного в художественном творчестве, в природе и в жизни, об искусстве как особом виде общественной идеологии.",
+                DescriptionEn = "Philosophical study of beauty and taste, and art as a special kind of social ideology."
             },
             new Branch
             {
-                Id = EpistemologyBranchId, Name = "Эпистемология",
-                Description = "Theory of knowledge, especially with regard to its methods, validity, and scope."
+                Id = EpistemologyBranchId, NameRu = "Эпистемология", NameEn = "Epistemology",
+                DescriptionRu = "Теория познания, особенно в отношении его методов, достоверности и объема.",
+                DescriptionEn = "Theory of knowledge, especially with regard to its methods, validity, and scope."
             },
             new Branch
             {
-                Id = EthicsBranchId, Name = "Этика",
-                Description =
-                    "Moral philosophy, involves systematizing, defending, and recommending concepts of right and wrong conduct."
+                Id = EthicsBranchId, NameRu = "Этика", NameEn = "Ethics",
+                DescriptionRu = "Моральная философия, включает систематизацию, защиту и рекомендации концепций правильного и неправильного поведения.",
+                DescriptionEn = "Moral philosophy, involves systematizing, defending, and recommending concepts of right and wrong conduct."
             },
-            new Branch { Id = LogicBranchId, Name = "Логика", Description = "Study of reasoning and argument." },
             new Branch
             {
-                Id = MetaphysicsBranchId, Name = "Метафизика",
-                Description =
-                    "Branch of philosophy that examines the fundamental nature of reality, including the relationship between mind and matter, substance and attribute, potentiality and actuality."
+                Id = LogicBranchId, NameRu = "Логика", NameEn = "Logic",
+                DescriptionRu = "Наука о законах и формах мышления, о методах рассуждения и доказательства.",
+                DescriptionEn = "The study of reasoning and argument, and the science of the laws and forms of thought."
+            },
+            new Branch
+            {
+                Id = MetaphysicsBranchId, NameRu = "Метафизика", NameEn = "Metaphysics",
+                DescriptionRu = "Раздел философии, исследующий фундаментальную природу реальности, включая отношения между разумом и материей, субстанцией и атрибутом, возможностью и действительностью.",
+                DescriptionEn = "Branch of philosophy that examines the fundamental nature of reality, including the relationship between mind and matter, substance and attribute, potentiality and actuality."
             }
         ];
     }
@@ -135,159 +143,161 @@ public static class PhilosophySeedData
         [
             new Philosopher
             {
-                Id = PlatoId, Name = "Платон (Plato)",
-                Bio = "Ancient Greek philosopher, founder of the Platonist school of thought and the Academy.",
+                Id = PlatoId, NameRu = "Платон", NameEn = "Plato",
+                BioRu = "Древнегреческий философ, основатель платонической школы мысли и Академии.",
+                BioEn = "Ancient Greek philosopher, founder of the Platonist school of thought and the Academy.",
                 BirthDate = -428, DeathDate = -348, IsFemale = false,
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 1
             },
             new Philosopher
             {
-                Id = AristotleId, Name = "Аристотель (Aristotle)",
-                Bio =
-                    "Ancient Greek philosopher and scientist. His writings cover many subjects including physics, biology, zoology, metaphysics, logic, ethics, aesthetics, poetry, theatre, music, rhetoric, psychology, linguistics, economics, politics, and government.",
+                Id = AristotleId, NameRu = "Аристотель", NameEn = "Aristotle",
+                BioRu = "Древнегреческий философ и ученый. Его труды охватывают множество предметов, включая физику, биологию, зоологию, метафизику, логику, этику, эстетику, поэзию, театр, музыку, риторику, психологию, лингвистику, экономику, политику и государственное управление.",
+                BioEn = "Ancient Greek philosopher and scientist. His writings cover many subjects including physics, biology, zoology, metaphysics, logic, ethics, aesthetics, poetry, theatre, music, rhetoric, psychology, linguistics, economics, politics, and government.",
                 BirthDate = -384, DeathDate = -322, IsFemale = false,
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 2
             },
             new Philosopher
             {
-                Id = KantId, Name = "Иммануил Кант (Immanuel Kant)",
-                Bio =
-                    "German philosopher, a central figure in modern philosophy. Argued that the human understanding is the source of the general laws of nature that structure all our experience.",
+                Id = KantId, NameRu = "Иммануил Кант", NameEn = "Immanuel Kant",
+                BioRu = "Немецкий философ, центральная фигура современной философии. Утверждал, что человеческое понимание является источником общих законов природы, которые структурируют весь наш опыт.",
+                BioEn = "German philosopher, a central figure in modern philosophy. Argued that human understanding is the source of the general laws of nature that structure all our experience.",
                 BirthDate = 1724, DeathDate = 1804, IsFemale = false,
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 3
             },
             new Philosopher
             {
-                Id = NietzscheId, Name = "Фридрих Ницше (Friedrich Nietzsche)",
-                Bio =
-                    "German philosopher, cultural critic, composer, poet, writer, and philologist whose work has exerted a profound influence on modern intellectual history.",
+                Id = NietzscheId, NameRu = "Фридрих Ницше", NameEn = "Friedrich Nietzsche",
+                BioRu = "Немецкий философ, культурный критик, композитор, поэт, писатель и филолог, чьи работы оказали глубокое влияние на современную интеллектуальную историю.",
+                BioEn = "German philosopher, cultural critic, composer, poet, writer, and philologist whose work has exerted a profound influence on modern intellectual history.",
                 BirthDate = 1844, DeathDate = 1900, IsFemale = false,
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 4
             },
             new Philosopher
             {
-                Id = SartreId, Name = "Жан-Поль Сартр (Jean-Paul Sartre)",
-                Bio =
-                    "French philosopher, playwright, novelist, screenwriter, political activist, biographer, and literary critic. He was one of the key figures in the philosophy of existentialism and phenomenology.",
+                Id = SartreId, NameRu = "Жан-Поль Сартр", NameEn = "Jean-Paul Sartre",
+                BioRu = "Французский философ, драматург, романист, сценарист, политический активист, биограф и литературный критик. Он был одной из ключевых фигур в философии экзистенциализма и феноменологии.",
+                BioEn = "French philosopher, playwright, novelist, screenwriter, political activist, biographer, and literary critic. He was one of the key figures in the philosophy of existentialism and phenomenology.",
                 BirthDate = 1905, DeathDate = 1980, IsFemale = false,
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 5
             },
             new Philosopher
             {
-                Id = DeBeauvoirId, Name = "Симона де Бовуар (Simone de Beauvoir)",
-                Bio =
-                    "French writer, intellectual, existentialist philosopher, political activist, feminist, and social theorist.",
+                Id = DeBeauvoirId, NameRu = "Симона де Бовуар", NameEn = "Simone de Beauvoir",
+                BioRu = "Французская писательница, интеллектуалка, философ-экзистенциалист, политическая активистка, феминистка и социальный теоретик.",
+                BioEn = "French writer, intellectual, existentialist philosopher, political activist, feminist, and social theorist.",
                 BirthDate = 1908, DeathDate = 1986, IsFemale = true,
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 6
             },
             new Philosopher
             {
-                Id = DescartesId, Name = "Рене Декарт (René Descartes)",
-                Bio =
-                    "French philosopher, mathematician, and scientist. Dubbed the father of modern western philosophy.",
+                Id = DescartesId, NameRu = "Рене Декарт", NameEn = "René Descartes",
+                BioRu = "Французский философ, математик и ученый. Считается отцом современной западной философии.",
+                BioEn = "French philosopher, mathematician, and scientist. Dubbed the father of modern western philosophy.",
                 BirthDate = 1596, DeathDate = 1650, IsFemale = false,
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 7
             },
             new Philosopher
             {
-                Id = LockeId, Name = "Джон Локк (John Locke)",
-                Bio =
-                    "English philosopher and physician, widely regarded as one of the most influential of Enlightenment thinkers and commonly known as the 'Father of Liberalism'.",
+                Id = LockeId, NameRu = "Джон Локк", NameEn = "John Locke",
+                BioRu = "Английский философ и врач, широко признанный одним из самых влиятельных мыслителей Просвещения и известный как 'Отец либерализма'.",
+                BioEn = "English philosopher and physician, widely regarded as one of the most influential of Enlightenment thinkers and commonly known as the 'Father of Liberalism'.",
                 BirthDate = 1632, DeathDate = 1704, IsFemale = false,
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 8
             },
             new Philosopher
             {
-                Id = HumeId, Name = "Дэвид Юм (David Hume)",
-                Bio =
-                    "Scottish Enlightenment philosopher, historian, economist, and essayist, who is best known today for his highly influential system of philosophical empiricism, skepticism, and naturalism.",
+                Id = HumeId, NameRu = "Дэвид Юм", NameEn = "David Hume",
+                BioRu = "Шотландский философ эпохи Просвещения, историк, экономист и эссеист, наиболее известный сегодня своей влиятельной системой философского эмпиризма, скептицизма и натурализма.",
+                BioEn = "Scottish Enlightenment philosopher, historian, economist, and essayist, who is best known today for his highly influential system of philosophical empiricism, skepticism, and naturalism.",
                 BirthDate = 1711, DeathDate = 1776, IsFemale = false,
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 9
             },
             new Philosopher
             {
-                Id = SpinozaId, Name = "Бенедикт Спиноза (Baruch Spinoza)",
-                Bio =
-                    "Dutch philosopher of Portuguese Sephardi origin. One of the early thinkers of the Enlightenment and modern biblical criticism, including modern conceptions of the self and the universe.",
+                Id = SpinozaId, NameRu = "Бенедикт Спиноза", NameEn = "Baruch Spinoza",
+                BioRu = "Голландский философ португальско-сефардского происхождения. Один из ранних мыслителей Просвещения и современной библейской критики, включая современные концепции самости и вселенной.",
+                BioEn = "Dutch philosopher of Portuguese Sephardi origin. One of the early thinkers of the Enlightenment and modern biblical criticism, including modern conceptions of the self and the universe.",
                 BirthDate = 1632, DeathDate = 1677, IsFemale = false,
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 10
             },
             new Philosopher
             {
-                Id = SchopenhauerId, Name = "Артур Шопенгауэр (Arthur Schopenhauer)",
-                Bio = "German philosopher. Best known for his 1818 work The World as Will and Representation.",
+                Id = SchopenhauerId, NameRu = "Артур Шопенгауэр", NameEn = "Arthur Schopenhauer",
+                BioRu = "Немецкий философ. Наиболее известен своей работой 1818 года 'Мир как воля и представление'.",
+                BioEn = "German philosopher. Best known for his 1818 work The World as Will and Representation.",
                 BirthDate = 1788, DeathDate = 1860, IsFemale = false,
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 11
             },
             new Philosopher
             {
-                Id = KierkegaardId, Name = "Сёрен Кьеркегор (Søren Kierkegaard)",
-                Bio =
-                    "Danish philosopher, theologian, poet, social critic and religious author who is widely considered to be the first existentialist philosopher.",
+                Id = KierkegaardId, NameRu = "Сёрен Кьеркегор", NameEn = "Søren Kierkegaard",
+                BioRu = "Датский философ, теолог, поэт, социальный критик и религиозный автор, широко считающийся первым философом-экзистенциалистом.",
+                BioEn = "Danish philosopher, theologian, poet, social critic and religious author who is widely considered to be the first existentialist philosopher.",
                 BirthDate = 1813, DeathDate = 1855, IsFemale = false,
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 12
             },
             new Philosopher
             {
-                Id = WittgensteinId, Name = "Людвиг Витгенштейн (Ludwig Wittgenstein)",
-                Bio =
-                    "Austrian-British philosopher who worked primarily in logic, the philosophy of mathematics, the philosophy of mind, and the philosophy of language.",
+                Id = WittgensteinId, NameRu = "Людвиг Витгенштейн", NameEn = "Ludwig Wittgenstein",
+                BioRu = "Австрийско-британский философ, работавший преимущественно в области логики, философии математики, философии сознания и философии языка.",
+                BioEn = "Austrian-British philosopher who worked primarily in logic, the philosophy of mathematics, the philosophy of mind, and the philosophy of language.",
                 BirthDate = 1889, DeathDate = 1951, IsFemale = false,
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 13
             },
             new Philosopher
             {
-                Id = BakhtinId, Name = "Михаил Бахтин (Mikhail Bakhtin)",
-                Bio =
-                    "Russian philosopher, literary critic and scholar who worked on literary theory, ethics, and the philosophy of language.",
+                Id = BakhtinId, NameRu = "Михаил Бахтин", NameEn = "Mikhail Bakhtin",
+                BioRu = "Русский философ, литературовед и ученый, работавший над теорией литературы, этикой и философией языка.",
+                BioEn = "Russian philosopher, literary critic and scholar who worked on literary theory, ethics, and the philosophy of language.",
                 BirthDate = 1895, DeathDate = 1975, IsFemale = false,
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 14
             },
             new Philosopher
             {
-                Id = SolovyovId, Name = "Владимир Соловьёв (Vladimir Solovyov)",
-                Bio =
-                    "Russian philosopher, theologian, poet, pamphleteer, and literary critic. He played a significant role in the development of Russian philosophy and poetry at the end of the 19th century and in the spiritual renaissance of the early 20th century.",
+                Id = SolovyovId, NameRu = "Владимир Соловьёв", NameEn = "Vladimir Solovyov",
+                BioRu = "Русский философ, богослов, поэт, публицист и литературный критик. Он сыграл значительную роль в развитии русской философии и поэзии конца XIX века и в духовном ренессансе начала XX века.",
+                BioEn = "Russian philosopher, theologian, poet, pamphleteer, and literary critic. He played a significant role in the development of Russian philosophy and poetry at the end of the 19th century and in the spiritual renaissance of the early 20th century.",
                 BirthDate = 1853, DeathDate = 1900, IsFemale = false,
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 15
             },
             new Philosopher
             {
-                Id = BerdyaevId, Name = "Николай Бердяев (Nikolai Berdyaev)",
-                Bio =
-                    "Russian political and Christian existentialist philosopher who emphasized the existential spiritual significance of human freedom and the human person.",
+                Id = BerdyaevId, NameRu = "Николай Бердяев", NameEn = "Nikolai Berdyaev",
+                BioRu = "Русский политический и христианский философ-экзистенциалист, подчеркивавший экзистенциальное духовное значение человеческой свободы и человеческой личности.",
+                BioEn = "Russian political and Christian existentialist philosopher who emphasized the existential spiritual significance of human freedom and the human person.",
                 BirthDate = 1874, DeathDate = 1948, IsFemale = false,
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 16
             },
             new Philosopher
             {
-                Id = ShestovId, Name = "Лев Шестов (Lev Shestov)",
-                Bio =
-                    "Russian existentialist philosopher, known for his 'philosophy of despair' and his critique of rationalism.",
+                Id = ShestovId, NameRu = "Лев Шестов", NameEn = "Lev Shestov",
+                BioRu = "Русский философ-экзистенциалист, известный своей 'философией отчаяния' и критикой рационализма.",
+                BioEn = "Russian existentialist philosopher, known for his 'philosophy of despair' and his critique of rationalism.",
                 BirthDate = 1866, DeathDate = 1938, IsFemale = false,
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 17
             },
             new Philosopher
             {
-                Id = LosevId, Name = "Алексей Лосев (Aleksei Losev)",
-                Bio =
-                    "Russian philosopher, philologist and culturologist, one of the most prominent figures in Russian philosophical and religious thought of the 20th century.",
+                Id = LosevId, NameRu = "Алексей Лосев", NameEn = "Aleksei Losev",
+                BioRu = "Русский философ, филолог и культуролог, одна из самых выдающихся фигур русской философской и религиозной мысли XX века.",
+                BioEn = "Russian philosopher, philologist and culturologist, one of the most prominent figures in Russian philosophical and religious thought of the 20th century.",
                 BirthDate = 1893, DeathDate = 1988, IsFemale = false,
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 18
             },
             new Philosopher
             {
-                Id = ArendtId, Name = "Ханна Арендт (Hannah Arendt)",
-                Bio =
-                    "German-born American political theorist. Her work deals with the nature of power, and the subjects of politics, direct democracy, authority, and totalitarianism.",
+                Id = ArendtId, NameRu = "Ханна Арендт", NameEn = "Hannah Arendt",
+                BioRu = "Американский политический теоретик немецкого происхождения. Её работы посвящены природе власти, а также вопросам политики, прямой демократии, авторитета и тоталитаризма.",
+                BioEn = "German-born American political theorist. Her work deals with the nature of power, and the subjects of politics, direct democracy, authority, and totalitarianism.",
                 BirthDate = 1906, DeathDate = 1975, IsFemale = true,
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 19
             },
             new Philosopher
             {
-                Id = FoucaultId, Name = "Мишель Фуко (Michel Foucault)",
-                Bio =
-                    "French philosopher, historian of ideas, writer, political activist, and literary critic. Foucault's theories primarily address the relationship between power and knowledge, and how they are used as a form of social control through societal institutions.",
+                Id = FoucaultId, NameRu = "Мишель Фуко", NameEn = "Michel Foucault",
+                BioRu = "Французский философ, историк идей, писатель, политический активист и литературный критик. Теории Фуко в основном касаются взаимосвязи между властью и знанием, и того, как они используются в качестве формы социального контроля через общественные институты.",
+                BioEn = "French philosopher, historian of ideas, writer, political activist, and literary critic. Foucault's theories primarily address the relationship between power and knowledge, and how they are used as a form of social control through societal institutions.",
                 BirthDate = 1926, DeathDate = 1984, IsFemale = false,
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 20
             }
@@ -301,153 +311,164 @@ public static class PhilosophySeedData
         [
             new Work
             {
-                Id = RepublicId, Name = "Государство (The Republic)",
-                Description =
-                    "Socratic dialogue concerning justice, the order and character of the just city-state, and the just man.",
+                Id = RepublicId, NameRu = "Государство", NameEn = "The Republic",
+                DescriptionRu = "Сократический диалог о справедливости, порядке и характере справедливого города-государства и справедливого человека.",
+                DescriptionEn = "Socratic dialogue concerning justice, the order and character of the just city-state, and the just man.",
                 PublicationYear = -375, PrimaryAuthorId = PlatoId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime,
-                Type = WorkTypes.Interview, WikipediaId = 101
+                Type = WorkTypes.Interview, WikipediaId = 101 // В вашем enum есть Interview, оставляю его
             },
             new Work
             {
-                Id = NicomacheanEthicsId, Name = "Никомахова этика (Nicomachean Ethics)",
-                Description = "Aristotle's best-known work on ethics, the science of the good for human life.",
+                Id = NicomacheanEthicsId, NameRu = "Никомахова этика", NameEn = "Nicomachean Ethics",
+                DescriptionRu = "Самая известная работа Аристотеля по этике, наука о благе для человеческой жизни.",
+                DescriptionEn = "Aristotle's best-known work on ethics, the science of the good for human life.",
                 PublicationYear = -340, PrimaryAuthorId = AristotleId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime,
                 Type = WorkTypes.Treatise, WikipediaId = 102
             },
             new Work
             {
-                Id = CritiquePureReasonId, Name = "Критика чистого разума (Critique of Pure Reason)",
-                Description = "Explores the nature of human reason and its limits.", PublicationYear = 1781,
+                Id = CritiquePureReasonId, NameRu = "Критика чистого разума", NameEn = "Critique of Pure Reason",
+                DescriptionRu = "Исследует природу человеческого разума и его пределы.",
+                DescriptionEn = "Explores the nature of human reason and its limits.",
+                PublicationYear = 1781,
                 PrimaryAuthorId = KantId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime, Type = WorkTypes.Book,
                 WikipediaId = 103
             },
             new Work
             {
-                Id = ThusSpokeZarathustraId, Name = "Так говорил Заратустра (Thus Spoke Zarathustra)",
-                Description =
-                    "A philosophical novel exploring ideas like the 'death of God', the Übermensch, and the will to power.",
+                Id = ThusSpokeZarathustraId, NameRu = "Так говорил Заратустра", NameEn = "Thus Spoke Zarathustra",
+                DescriptionRu = "Философский роман, исследующий такие идеи, как 'смерть Бога', Сверхчеловек и воля к власти.",
+                DescriptionEn = "A philosophical novel exploring ideas like the 'death of God', the Übermensch, and the will to power.",
                 PublicationYear = 1883, PrimaryAuthorId = NietzscheId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime,
                 Type = WorkTypes.Book, WikipediaId = 104
             },
             new Work
             {
-                Id = BeingAndNothingnessId, Name = "Бытие и ничто (Being and Nothingness)",
-                Description =
-                    "An essay on phenomenological ontology, considered a foundational text of existentialism.",
+                Id = BeingAndNothingnessId, NameRu = "Бытие и ничто", NameEn = "Being and Nothingness",
+                DescriptionRu = "Эссе по феноменологической онтологии, считающееся основополагающим текстом экзистенциализма.",
+                DescriptionEn = "An essay on phenomenological ontology, considered a foundational text of existentialism.",
                 PublicationYear = 1943, PrimaryAuthorId = SartreId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime,
                 Type = WorkTypes.Book, WikipediaId = 105
             },
             new Work
             {
-                Id = SecondSexId, Name = "Второй пол (The Second Sex)",
-                Description =
-                    "A detailed analysis of women's oppression and a foundational tract of contemporary feminism.",
+                Id = SecondSexId, NameRu = "Второй пол", NameEn = "The Second Sex",
+                DescriptionRu = "Подробный анализ угнетения женщин и основополагающий трактат современного феминизма.",
+                DescriptionEn = "A detailed analysis of women's oppression and a foundational tract of contemporary feminism.",
                 PublicationYear = 1949, PrimaryAuthorId = DeBeauvoirId, CreatedAt = DefaultTime,
                 UpdatedAt = DefaultTime, Type = WorkTypes.Book, WikipediaId = 106
             },
             new Work
             {
-                Id = MeditationsId, Name = "Размышления о первой философии (Meditations on First Philosophy)",
-                Description = "A foundational text of modern philosophy, exploring epistemological certainty.",
+                Id = MeditationsId, NameRu = "Размышления о первой философии", NameEn = "Meditations on First Philosophy",
+                DescriptionRu = "Основополагающий текст современной философии, исследующий эпистемологическую достоверность.",
+                DescriptionEn = "A foundational text of modern philosophy, exploring epistemological certainty.",
                 PublicationYear = 1641, PrimaryAuthorId = DescartesId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime,
                 Type = WorkTypes.Book, WikipediaId = 107
             },
             new Work
             {
-                Id = EssayConcerningHumanUnderstandingId,
-                Name = "Опыт о человеческом разумении (An Essay Concerning Human Understanding)",
-                Description = "A work concerning the foundation of human knowledge and understanding.",
+                Id = EssayConcerningHumanUnderstandingId, NameRu = "Опыт о человеческом разумении", NameEn = "An Essay Concerning Human Understanding",
+                DescriptionRu = "Работа, посвященная основам человеческого знания и понимания.",
+                DescriptionEn = "A work concerning the foundation of human knowledge and understanding.",
                 PublicationYear = 1689, PrimaryAuthorId = LockeId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime,
                 Type = WorkTypes.Book, WikipediaId = 108
             },
             new Work
             {
-                Id = TreatiseHumanNatureId, Name = "Трактат о человеческой природе (A Treatise of Human Nature)",
-                Description =
-                    "A book by Scottish philosopher David Hume, considered by many to be Hume's most important work and one of the most influential works in the history of philosophy.",
+                Id = TreatiseHumanNatureId, NameRu = "Трактат о человеческой природе", NameEn = "A Treatise of Human Nature",
+                DescriptionRu = "Книга шотландского философа Дэвида Юма, которую многие считают его самой важной работой и одним из самых влиятельных произведений в истории философии.",
+                DescriptionEn = "A book by Scottish philosopher David Hume, considered by many to be Hume's most important work and one of the most influential works in the history of philosophy.",
                 PublicationYear = 1739, PrimaryAuthorId = HumeId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime,
                 Type = WorkTypes.Book, WikipediaId = 109
             },
             new Work
             {
-                Id = SpinozaEthicsId, Name = "Этика (Ethics, Demonstrated in Geometrical Order)",
-                Description = "Spinoza's magnum opus, a philosophical treatise written in Latin.",
+                Id = SpinozaEthicsId, NameRu = "Этика", NameEn = "Ethics, Demonstrated in Geometrical Order",
+                DescriptionRu = "Главный труд Спинозы, философский трактат, написанный на латыни.",
+                DescriptionEn = "Spinoza's magnum opus, a philosophical treatise written in Latin.",
                 PublicationYear = 1677, PrimaryAuthorId = SpinozaId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime,
                 Type = WorkTypes.Book, WikipediaId = 110
             },
             new Work
             {
-                Id = WorldAsWillId, Name = "Мир как воля и представление (The World as Will and Representation)",
-                Description = "The central work of the German philosopher Arthur Schopenhauer.", PublicationYear = 1818,
+                Id = WorldAsWillId, NameRu = "Мир как воля и представление", NameEn = "The World as Will and Representation",
+                DescriptionRu = "Центральная работа немецкого философа Артура Шопенгауэра.",
+                DescriptionEn = "The central work of the German philosopher Arthur Schopenhauer.",
+                PublicationYear = 1818,
                 PrimaryAuthorId = SchopenhauerId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime,
                 Type = WorkTypes.Book, WikipediaId = 111
             },
             new Work
             {
-                Id = FearAndTremblingId, Name = "Страх и трепет (Fear and Trembling)",
-                Description =
-                    "A philosophical work by Søren Kierkegaard, published in 1843 under the pseudonym Johannes de silentio.",
+                Id = FearAndTremblingId, NameRu = "Страх и трепет", NameEn = "Fear and Trembling",
+                DescriptionRu = "Философская работа Сёрена Кьеркегора, опубликованная в 1843 году под псевдонимом Йоханнес де Силенцио.",
+                DescriptionEn = "A philosophical work by Søren Kierkegaard, published in 1843 under the pseudonym Johannes de silentio.",
                 PublicationYear = 1843, PrimaryAuthorId = KierkegaardId, CreatedAt = DefaultTime,
                 UpdatedAt = DefaultTime, Type = WorkTypes.Book, WikipediaId = 112
             },
             new Work
             {
-                Id = TractatusId, Name = "Логико-философский трактат (Tractatus Logico-Philosophicus)",
-                Description =
-                    "The only book-length philosophical work by the Austrian philosopher Ludwig Wittgenstein that was published during his lifetime.",
+                Id = TractatusId, NameRu = "Логико-философский трактат", NameEn = "Tractatus Logico-Philosophicus",
+                DescriptionRu = "Единственная философская работа австрийского философа Людвига Витгенштейна, опубликованная при его жизни.",
+                DescriptionEn = "The only book-length philosophical work by the Austrian philosopher Ludwig Wittgenstein that was published during his lifetime.",
                 PublicationYear = 1921, PrimaryAuthorId = WittgensteinId, CreatedAt = DefaultTime,
                 UpdatedAt = DefaultTime, Type = WorkTypes.Book, WikipediaId = 113
             },
             new Work
             {
-                Id = DostoevskyPoeticsId, Name = "Проблемы поэтики Достоевского (Problems of Dostoevsky's Poetics)",
-                Description = "A major work of literary theory and analysis by Mikhail Bakhtin.",
+                Id = DostoevskyPoeticsId, NameRu = "Проблемы поэтики Достоевского", NameEn = "Problems of Dostoevsky's Poetics",
+                DescriptionRu = "Крупная работа Михаила Бахтина по теории и анализу литературы.",
+                DescriptionEn = "A major work of literary theory and analysis by Mikhail Bakhtin.",
                 PublicationYear = 1929, PrimaryAuthorId = BakhtinId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime,
                 Type = WorkTypes.Book, WikipediaId = 114
             },
             new Work
             {
-                Id = GodmanhoodId, Name = "Чтения о богочеловечестве (Lectures on Godmanhood)",
-                Description = "A series of lectures outlining Solovyov's sophiology and concept of Godmanhood.",
+                Id = GodmanhoodId, NameRu = "Чтения о богочеловечестве", NameEn = "Lectures on Godmanhood",
+                DescriptionRu = "Серия лекций, излагающих софиологию Соловьева и концепцию Богочеловечества.",
+                DescriptionEn = "A series of lectures outlining Solovyov's sophiology and concept of Godmanhood.",
                 PublicationYear = 1881, PrimaryAuthorId = SolovyovId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime,
                 Type = WorkTypes.Lecture, WikipediaId = 115
             },
             new Work
             {
-                Id = MeaningOfHistoryId, Name = "Смысл истории (The Meaning of History)",
-                Description = "An essay on the philosophy of history by Nikolai Berdyaev.", PublicationYear = 1923,
+                Id = MeaningOfHistoryId, NameRu = "Смысл истории", NameEn = "The Meaning of History",
+                DescriptionRu = "Эссе Николая Бердяева по философии истории.",
+                DescriptionEn = "An essay on the philosophy of history by Nikolai Berdyaev.",
+                PublicationYear = 1923,
                 PrimaryAuthorId = BerdyaevId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime, Type = WorkTypes.Essay,
                 WikipediaId = 116
             },
             new Work
             {
-                Id = AthensAndJerusalemId, Name = "Афины и Иерусалим (Athens and Jerusalem)",
-                Description = "A philosophical work contrasting Greek rationalism with Hebraic revelation.",
+                Id = AthensAndJerusalemId, NameRu = "Афины и Иерусалим", NameEn = "Athens and Jerusalem",
+                DescriptionRu = "Философская работа, противопоставляющая греческий рационализм иудейскому откровению.",
+                DescriptionEn = "A philosophical work contrasting Greek rationalism with Hebraic revelation.",
                 PublicationYear = 1938, PrimaryAuthorId = ShestovId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime,
                 Type = WorkTypes.Book, WikipediaId = 117
             },
             new Work
             {
-                Id = DialecticOfMythId, Name = "Диалектика мифа (The Dialectic of Myth)",
-                Description =
-                    "A key work by Aleksei Losev on the nature of myth and its relation to consciousness and reality.",
+                Id = DialecticOfMythId, NameRu = "Диалектика мифа", NameEn = "The Dialectic of Myth",
+                DescriptionRu = "Ключевая работа Алексея Лосева о природе мифа и его связи с сознанием и реальностью.",
+                DescriptionEn = "A key work by Aleksei Losev on the nature of myth and its relation to consciousness and reality.",
                 PublicationYear = 1930, PrimaryAuthorId = LosevId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime,
                 Type = WorkTypes.Book, WikipediaId = 118
             },
             new Work
             {
-                Id = HumanConditionId, Name = "Vita activa, или О деятельной жизни (The Human Condition)",
-                Description =
-                    "A major work by Hannah Arendt discussing the vita activa (active life) in contrast to the vita contemplativa (contemplative life).",
+                Id = HumanConditionId, NameRu = "Vita activa, или О деятельной жизни", NameEn = "The Human Condition",
+                DescriptionRu = "Крупная работа Ханны Арендт, обсуждающая vita activa (деятельную жизнь) в противоположность vita contemplativa (созерцательной жизни).",
+                DescriptionEn = "A major work by Hannah Arendt discussing the vita activa (active life) in contrast to the vita contemplativa (contemplative life).",
                 PublicationYear = 1958, PrimaryAuthorId = ArendtId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime,
                 Type = WorkTypes.Book, WikipediaId = 119
             },
             new Work
             {
-                Id = DisciplineAndPunishId,
-                Name = "Надзирать и наказывать (Discipline and Punish: The Birth of the Prison)",
-                Description =
-                    "An analysis of the social and theoretical mechanisms behind the changes in Western penal systems during the modern age.",
+                Id = DisciplineAndPunishId, NameRu = "Надзирать и наказывать", NameEn = "Discipline and Punish: The Birth of the Prison",
+                DescriptionRu = "Анализ социальных и теоретических механизмов, стоящих за изменениями в западных пенитенциарных системах в современную эпоху.",
+                DescriptionEn = "An analysis of the social and theoretical mechanisms behind the changes in Western penal systems during the modern age.",
                 PublicationYear = 1975, PrimaryAuthorId = FoucaultId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime,
                 Type = WorkTypes.Book, WikipediaId = 120
             }
@@ -460,148 +481,155 @@ public static class PhilosophySeedData
         [
             new CategorySchool
             {
-                CategorySchoolId = PlatonismId, Name = "Платонизм (Platonism)",
-                Description = "The philosophy of Plato and philosophical systems closely derived from it.",
+                CategorySchoolId = PlatonismId, NameRu = "Платонизм", NameEn = "Platonism",
+                DescriptionRu = "Философия Платона и тесно связанные с ней философские системы.",
+                DescriptionEn = "The philosophy of Plato and philosophical systems closely derived from it.",
                 BranchId = MetaphysicsBranchId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime,
                 ParentCategorySchoolId = AncientGreekPhilosophyId, WikipediaId = 201
             },
             new CategorySchool
             {
-                CategorySchoolId = AristotelianismId, Name = "Аристотелизм (Aristotelianism)",
-                Description =
-                    "A tradition of philosophy that takes its defining inspiration from the work of Aristotle.",
+                CategorySchoolId = AristotelianismId, NameRu = "Аристотелизм", NameEn = "Aristotelianism",
+                DescriptionRu = "Философская традиция, черпающая свое определяющее вдохновение из работ Аристотеля.",
+                DescriptionEn = "A tradition of philosophy that takes its defining inspiration from the work of Aristotle.",
                 BranchId = MetaphysicsBranchId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime,
                 ParentCategorySchoolId = AncientGreekPhilosophyId, WikipediaId = 202
             },
             new CategorySchool
             {
-                CategorySchoolId = KantianismId, Name = "Кантианство (Kantianism)",
-                Description = "Philosophy of Immanuel Kant, a German philosopher.", BranchId = EpistemologyBranchId,
+                CategorySchoolId = KantianismId, NameRu = "Кантианство", NameEn = "Kantianism",
+                DescriptionRu = "Философия Иммануила Канта, немецкого философа.",
+                DescriptionEn = "Philosophy of Immanuel Kant, a German philosopher.",
+                BranchId = EpistemologyBranchId,
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, ParentCategorySchoolId = GermanIdealismId,
                 WikipediaId = 203
             },
             new CategorySchool
             {
-                CategorySchoolId = ExistentialismId, Name = "Экзистенциализм (Existentialism)",
-                Description =
-                    "A form of philosophical inquiry that explores the problem of human existence and centers on the lived experience of the thinking, feeling, acting individual.",
+                CategorySchoolId = ExistentialismId, NameRu = "Экзистенциализм", NameEn = "Existentialism",
+                DescriptionRu = "Форма философского исследования, которая исследует проблему человеческого существования и фокусируется на жизненном опыте мыслящего, чувствующего, действующего индивида.",
+                DescriptionEn = "A form of philosophical inquiry that explores the problem of human existence and centers on the lived experience of the thinking, feeling, acting individual.",
                 BranchId = EthicsBranchId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime,
                 ParentCategorySchoolId = ContinentalPhilosophyId, WikipediaId = 204
             },
             new CategorySchool
             {
-                CategorySchoolId = FeminismId, Name = "Феминизм (Feminism)",
-                Description =
-                    "A range of socio-political movements and ideologies that aim to define and establish the political, economic, personal, and social equality of the sexes.",
+                CategorySchoolId = FeminismId, NameRu = "Феминизм", NameEn = "Feminism",
+                DescriptionRu = "Ряд социально-политических движений и идеологий, направленных на определение и установление политического, экономического, личного и социального равенства полов.",
+                DescriptionEn = "A range of socio-political movements and ideologies that aim to define and establish the political, economic, personal, and social equality of the sexes.",
                 BranchId = EthicsBranchId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 205
             },
             new CategorySchool
             {
-                CategorySchoolId = RationalismId, Name = "Рационализм (Rationalism)",
-                Description = "A view appealing to reason as a source of knowledge or justification.",
+                CategorySchoolId = RationalismId, NameRu = "Рационализм", NameEn = "Rationalism",
+                DescriptionRu = "Взгляд, апеллирующий к разуму как источнику знания или оправдания.",
+                DescriptionEn = "A view appealing to reason as a source of knowledge or justification.",
                 BranchId = EpistemologyBranchId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime,
                 ParentCategorySchoolId = ModernPhilosophyId, WikipediaId = 206
             },
             new CategorySchool
             {
-                CategorySchoolId = EmpiricismId, Name = "Эмпиризм (Empiricism)",
-                Description = "A theory that states that knowledge comes only or primarily from sensory experience.",
+                CategorySchoolId = EmpiricismId, NameRu = "Эмпиризм", NameEn = "Empiricism",
+                DescriptionRu = "Теория, согласно которой знание происходит только или преимущественно из чувственного опыта.",
+                DescriptionEn = "A theory that states that knowledge comes only or primarily from sensory experience.",
                 BranchId = EpistemologyBranchId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime,
                 ParentCategorySchoolId = ModernPhilosophyId, WikipediaId = 207
             },
             new CategorySchool
             {
-                CategorySchoolId = StoicismId, Name = "Стоицизм (Stoicism)",
-                Description =
-                    "A school of Hellenistic philosophy founded by Zeno of Citium in Athens in the early 3rd century BC.",
+                CategorySchoolId = StoicismId, NameRu = "Стоицизм", NameEn = "Stoicism",
+                DescriptionRu = "Школа эллинистической философии, основанная Зеноном из Китиона в Афинах в начале III века до н.э.",
+                DescriptionEn = "A school of Hellenistic philosophy founded by Zeno of Citium in Athens in the early 3rd century BC.",
                 BranchId = EthicsBranchId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime,
                 ParentCategorySchoolId = AncientGreekPhilosophyId, WikipediaId = 208
             },
             new CategorySchool
             {
-                CategorySchoolId = GermanIdealismId, Name = "Немецкий идеализм (German Idealism)",
-                Description =
-                    "A philosophical movement that emerged in Germany in the late 18th and early 19th centuries.",
+                CategorySchoolId = GermanIdealismId, NameRu = "Немецкий идеализм", NameEn = "German Idealism",
+                DescriptionRu = "Философское движение, возникшее в Германии в конце XVIII - начале XIX веков.",
+                DescriptionEn = "A philosophical movement that emerged in Germany in the late 18th and early 19th centuries.",
                 BranchId = MetaphysicsBranchId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime,
                 ParentCategorySchoolId = ModernPhilosophyId, WikipediaId = 209
             },
             new CategorySchool
             {
-                CategorySchoolId = PhenomenologyId, Name = "Феноменология (Phenomenology)",
-                Description =
-                    "The study of structures of consciousness as experienced from the first-person point of view.",
+                CategorySchoolId = PhenomenologyId, NameRu = "Феноменология", NameEn = "Phenomenology",
+                DescriptionRu = "Исследование структур сознания, переживаемых с точки зрения первого лица.",
+                DescriptionEn = "The study of structures of consciousness as experienced from the first-person point of view.",
                 BranchId = EpistemologyBranchId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime,
                 ParentCategorySchoolId = ContinentalPhilosophyId, WikipediaId = 210
             },
             new CategorySchool
             {
-                CategorySchoolId = LogicalPositivismId, Name = "Логический позитивизм (Logical Positivism)",
-                Description = "A movement in Western philosophy whose central thesis was the verification principle.",
+                CategorySchoolId = LogicalPositivismId, NameRu = "Логический позитивизм", NameEn = "Logical Positivism",
+                DescriptionRu = "Движение в западной философии, центральным тезисом которого был принцип верификации.",
+                DescriptionEn = "A movement in Western philosophy whose central thesis was the verification principle.",
                 BranchId = LogicBranchId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime,
                 ParentCategorySchoolId = AnalyticPhilosophyId, WikipediaId = 211
             },
             new CategorySchool
             {
-                CategorySchoolId = RussianReligiousPhilosophyId,
-                Name = "Русская религиозная философия (Russian Religious Philosophy)",
-                Description =
-                    "A distinctive school of thought that emerged in Russia in the 19th and early 20th centuries.",
+                CategorySchoolId = RussianReligiousPhilosophyId, NameRu = "Русская религиозная философия", NameEn = "Russian Religious Philosophy",
+                DescriptionRu = "Самобытная школа мысли, возникшая в России в XIX - начале XX веков.",
+                DescriptionEn = "A distinctive school of thought that emerged in Russia in the 19th and early 20th centuries.",
                 BranchId = MetaphysicsBranchId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 212
             },
             new CategorySchool
             {
-                CategorySchoolId = PostStructuralismId, Name = "Постструктурализм (Post-structuralism)",
-                Description =
-                    "A term for philosophical and literary forms of theory that both build upon and reject ideas established by structuralism.",
+                CategorySchoolId = PostStructuralismId, NameRu = "Постструктурализм", NameEn = "Post-structuralism",
+                DescriptionRu = "Термин для философских и литературных форм теории, которые одновременно основываются на идеях структурализма и отвергают их.",
+                DescriptionEn = "A term for philosophical and literary forms of theory that both build upon and reject ideas established by structuralism.",
                 BranchId = EpistemologyBranchId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime,
                 ParentCategorySchoolId = ContinentalPhilosophyId, WikipediaId = 213
             },
             new CategorySchool
             {
-                CategorySchoolId = AncientGreekPhilosophyId,
-                Name = "Древнегреческая философия (Ancient Greek Philosophy)",
-                Description = "Philosophy in Ancient Greece, from the 6th century BC to the Hellenistic period.",
+                CategorySchoolId = AncientGreekPhilosophyId, NameRu = "Древнегреческая философия", NameEn = "Ancient Greek Philosophy",
+                DescriptionRu = "Философия в Древней Греции, с VI века до н.э. до эллинистического периода.",
+                DescriptionEn = "Philosophy in Ancient Greece, from the 6th century BC to the Hellenistic period.",
                 BranchId = MetaphysicsBranchId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 214
             },
             new CategorySchool
             {
-                CategorySchoolId = ModernPhilosophyId, Name = "Философия Нового времени (Modern Philosophy)",
-                Description =
-                    "Philosophy developed in the Western world during the early modern period (roughly 17th to 19th centuries).",
+                CategorySchoolId = ModernPhilosophyId, NameRu = "Философия Нового времени", NameEn = "Modern Philosophy",
+                DescriptionRu = "Философия, развивавшаяся в западном мире в ранний современный период (примерно XVII-XIX века).",
+                DescriptionEn = "Philosophy developed in the Western world during the early modern period (roughly 17th to 19th centuries).",
                 BranchId = EpistemologyBranchId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 215
             },
             new CategorySchool
             {
-                CategorySchoolId = ContinentalPhilosophyId, Name = "Континентальная философия (Continental Philosophy)",
-                Description = "A set of traditions of 19th and 20th-century philosophy from mainland Europe.",
+                CategorySchoolId = ContinentalPhilosophyId, NameRu = "Континентальная философия", NameEn = "Continental Philosophy",
+                DescriptionRu = "Совокупность традиций философии XIX и XX веков из континентальной Европы.",
+                DescriptionEn = "A set of traditions of 19th and 20th-century philosophy from mainland Europe.",
                 BranchId = MetaphysicsBranchId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 216
             },
             new CategorySchool
             {
-                CategorySchoolId = AnalyticPhilosophyId, Name = "Аналитическая философия (Analytic Philosophy)",
-                Description =
-                    "A tradition of philosophy characterized by an emphasis on clarity, argument, and formal logic.",
+                CategorySchoolId = AnalyticPhilosophyId, NameRu = "Аналитическая философия", NameEn = "Analytic Philosophy",
+                DescriptionRu = "Традиция философии, характеризующаяся акцентом на ясность, аргументацию и формальную логику.",
+                DescriptionEn = "A tradition of philosophy characterized by an emphasis on clarity, argument, and formal logic.",
                 BranchId = LogicBranchId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 217
             },
             new CategorySchool
             {
-                CategorySchoolId = ScholasticismId, Name = "Схоластика (Scholasticism)",
-                Description =
-                    "A method of critical thought which dominated teaching by the academics (scholastics, or schoolmen) of medieval universities in Europe from about 1100 to 1700.",
+                CategorySchoolId = ScholasticismId, NameRu = "Схоластика", NameEn = "Scholasticism",
+                DescriptionRu = "Метод критического мышления, который доминировал в преподавании академиков (схоластов, или школяров) средневековых университетов Европы примерно с 1100 по 1700 год.",
+                DescriptionEn = "A method of critical thought which dominated teaching by the academics (scholastics, or schoolmen) of medieval universities in Europe from about 1100 to 1700.",
                 BranchId = MetaphysicsBranchId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 218
             },
             new CategorySchool
             {
-                CategorySchoolId = IdealismId, Name = "Идеализм (Idealism)",
-                Description =
-                    "The group of metaphysical philosophies that assert that reality, or reality as humans can know it, is fundamentally mental, mentally constructed, or otherwise immaterial.",
+                CategorySchoolId = IdealismId, NameRu = "Идеализм", NameEn = "Idealism",
+                DescriptionRu = "Группа метафизических философий, утверждающих, что реальность, или реальность, какой ее могут познать люди, фундаментально ментальна, ментально сконструирована или иным образом нематериальна.",
+                DescriptionEn = "The group of metaphysical philosophies that assert that reality, or reality as humans can know it, is fundamentally mental, mentally constructed, or otherwise immaterial.",
                 BranchId = MetaphysicsBranchId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime,
                 ParentCategorySchoolId = GermanIdealismId, WikipediaId = 219
             },
             new CategorySchool
             {
-                CategorySchoolId = RealismId, Name = "Реализм (Realism)",
-                Description = "The belief that reality exists independently of observers.",
+                CategorySchoolId = RealismId, NameRu = "Реализм", NameEn = "Realism",
+                DescriptionRu = "Убеждение, что реальность существует независимо от наблюдателей.",
+                DescriptionEn = "The belief that reality exists independently of observers.",
                 BranchId = MetaphysicsBranchId, CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 220
             }
         ];
@@ -613,103 +641,108 @@ public static class PhilosophySeedData
         [
             new Notion
             {
-                NotionId = FormsId, Name = "Теория форм (Theory of Forms)",
-                Description =
-                    "Plato's theory that the physical world is not as real or true as timeless, absolute, unchangeable ideas.",
+                NotionId = FormsId, NameRu = "Теория форм", NameEn = "Theory of Forms",
+                DescriptionRu = "Теория Платона о том, что физический мир не так реален или истинен, как вневременные, абсолютные, неизменные идеи.",
+                DescriptionEn = "Plato's theory that the physical world is not as real or true as timeless, absolute, unchangeable ideas.",
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 301
             },
             new Notion
             {
-                NotionId = CategoricalImperativeId, Name = "Категорический императив (Categorical Imperative)",
-                Description = "Kant's central philosophical concept in his deontological moral philosophy.",
+                NotionId = CategoricalImperativeId, NameRu = "Категорический императив", NameEn = "Categorical Imperative",
+                DescriptionRu = "Центральное философское понятие Канта в его деонтологической моральной философии.",
+                DescriptionEn = "Kant's central philosophical concept in his deontological moral philosophy.",
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 302
             },
             new Notion
             {
-                NotionId = UbermenschId, Name = "Сверхчеловек (Übermensch)",
-                Description = "Nietzsche's concept of a goal for humanity to set for itself.", CreatedAt = DefaultTime,
+                NotionId = UbermenschId, NameRu = "Сверхчеловек", NameEn = "Übermensch",
+                DescriptionRu = "Концепция Ницше о цели, которую человечество должно поставить перед собой.",
+                DescriptionEn = "Nietzsche's concept of a goal for humanity to set for itself.",
+                CreatedAt = DefaultTime,
                 UpdatedAt = DefaultTime, WikipediaId = 303
             },
             new Notion
             {
-                NotionId = DaseinId, Name = "Дазайн (Dasein)",
-                Description = "Heidegger's term for 'being-there' or 'presence', referring to the human way of being.",
+                NotionId = DaseinId, NameRu = "Дазайн", NameEn = "Dasein",
+                DescriptionRu = "Термин Хайдеггера для 'бытия-здесь' или 'присутствия', относящийся к человеческому способу бытия.",
+                DescriptionEn = "Heidegger's term for 'being-there' or 'presence', referring to the human way of being.",
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 304
-            }, // Often associated with Existentialism via Heidegger
+            },
             new Notion
             {
-                NotionId = TabulaRasaId, Name = "Чистая доска (Tabula Rasa)",
-                Description =
-                    "Locke's theory that individuals are born without built-in mental content and that therefore all knowledge comes from experience or perception.",
+                NotionId = TabulaRasaId, NameRu = "Чистая доска", NameEn = "Tabula Rasa",
+                DescriptionRu = "Теория Локка о том, что индивиды рождаются без встроенного ментального содержания, и поэтому все знания приходят из опыта или восприятия.",
+                DescriptionEn = "Locke's theory that individuals are born without built-in mental content and that therefore all knowledge comes from experience or perception.",
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 305
             },
             new Notion
             {
-                NotionId = CogitoErgoSumId, Name = "Мыслю, следовательно, существую (Cogito, ergo sum)",
-                Description = "Descartes' famous philosophical proposition: 'I think, therefore I am'.",
+                NotionId = CogitoErgoSumId, NameRu = "Мыслю, следовательно, существую", NameEn = "Cogito, ergo sum",
+                DescriptionRu = "Знаменитое философское утверждение Декарта: 'Я мыслю, следовательно, я существую'.",
+                DescriptionEn = "Descartes' famous philosophical proposition: 'I think, therefore I am'.",
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 306
             },
             new Notion
             {
-                NotionId = SocialContractId, Name = "Общественный договор (Social Contract)",
-                Description =
-                    "A theory or model that originated during the Age of Enlightenment and usually concerns the legitimacy of the authority of the state over the individual.",
+                NotionId = SocialContractId, NameRu = "Общественный договор", NameEn = "Social Contract",
+                DescriptionRu = "Теория или модель, возникшая в эпоху Просвещения и обычно касающаяся легитимности власти государства над индивидом.",
+                DescriptionEn = "A theory or model that originated during the Age of Enlightenment and usually concerns the legitimacy of the authority of the state over the individual.",
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 307
             },
             new Notion
             {
-                NotionId = WillToPowerId, Name = "Воля к власти (Will to Power)",
-                Description =
-                    "A prominent concept in the philosophy of Friedrich Nietzsche, describing what he believed to be the main driving force in humans.",
+                NotionId = WillToPowerId, NameRu = "Воля к власти", NameEn = "Will to Power",
+                DescriptionRu = "Выдающаяся концепция в философии Фридриха Ницше, описывающая то, что он считал главной движущей силой в людях.",
+                DescriptionEn = "A prominent concept in the philosophy of Friedrich Nietzsche, describing what he believed to be the main driving force in humans.",
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 308
             },
             new Notion
             {
-                NotionId = AlienationId, Name = "Отчуждение (Alienation)",
-                Description =
-                    "A condition in social relationships reflected by a low degree of integration or common values and a high degree of distance or isolation between individuals, or between an individual and a group of people in a community or work environment.",
+                NotionId = AlienationId, NameRu = "Отчуждение", NameEn = "Alienation",
+                DescriptionRu = "Состояние в социальных отношениях, отражающееся низкой степенью интеграции или общих ценностей и высокой степенью дистанции или изоляции между индивидами, или между индивидом и группой людей в сообществе или рабочей среде.",
+                DescriptionEn = "A condition in social relationships reflected by a low degree of integration or common values and a high degree of distance or isolation between individuals, or between an individual and a group of people in a community or work environment.",
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 309
-            }, // Key in Marx, but also in Existentialism
+            },
             new Notion
             {
-                NotionId = AuthenticityId, Name = "Аутентичность (Authenticity)",
-                Description =
-                    "A concept in psychology, existentialist philosophy and aesthetics concerning the degree to which an individual's actions are congruent with their beliefs and desires, despite external pressures.",
+                NotionId = AuthenticityId, NameRu = "Аутентичность", NameEn = "Authenticity",
+                DescriptionRu = "Понятие в психологии, экзистенциальной философии и эстетике, касающееся степени, в которой действия индивида соответствуют его убеждениям и желаниям, несмотря на внешнее давление.",
+                DescriptionEn = "A concept in psychology, existentialist philosophy and aesthetics concerning the degree to which an individual's actions are congruent with their beliefs and desires, despite external pressures.",
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 310
             },
             new Notion
             {
-                NotionId = AporiaId, Name = "Апория (Aporia)",
-                Description =
-                    "In philosophy, an irresolvable internal contradiction or logical disjunction in a text, argument, or theory.",
+                NotionId = AporiaId, NameRu = "Апория", NameEn = "Aporia",
+                DescriptionRu = "В философии — неразрешимое внутреннее противоречие или логическая дизъюнкция в тексте, аргументе или теории.",
+                DescriptionEn = "In philosophy, an irresolvable internal contradiction or logical disjunction in a text, argument, or theory.",
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 311
             },
             new Notion
             {
-                NotionId = SyllogismId, Name = "Силлогизм (Syllogism)",
-                Description =
-                    "A kind of logical argument that applies deductive reasoning to arrive at a conclusion based on two or more propositions that are asserted or assumed to be true.",
+                NotionId = SyllogismId, NameRu = "Силлогизм", NameEn = "Syllogism",
+                DescriptionRu = "Вид логического аргумента, который применяет дедуктивное рассуждение для получения вывода на основе двух или более утверждений, которые утверждаются или предполагаются истинными.",
+                DescriptionEn = "A kind of logical argument that applies deductive reasoning to arrive at a conclusion based on two or more propositions that are asserted or assumed to be true.",
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 312
             },
             new Notion
             {
-                NotionId = MonadId, Name = "Монада (Monad)",
-                Description =
-                    "In Leibniz's philosophy, an elementary individual substance that reflects the universe from a specific viewpoint and is subject to its own internal laws of development.",
+                NotionId = MonadId, NameRu = "Монада", NameEn = "Monad",
+                DescriptionRu = "В философии Лейбница — элементарная индивидуальная субстанция, которая отражает вселенную с определенной точки зрения и подчиняется своим собственным внутренним законам развития.",
+                DescriptionEn = "In Leibniz's philosophy, an elementary individual substance that reflects the universe from a specific viewpoint and is subject to its own internal laws of development.",
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 313
             },
             new Notion
             {
-                NotionId = NoemaId, Name = "Ноэма (Noema)",
-                Description =
-                    "In Husserl's phenomenology, the object or content of a thought, judgment, or perception, but as it is meant or intended in that thought.",
+                NotionId = NoemaId, NameRu = "Ноэма", NameEn = "Noema",
+                DescriptionRu = "В феноменологии Гуссерля — объект или содержание мысли, суждения или восприятия, но как оно подразумевается или имеется в виду в этой мысли.",
+                DescriptionEn = "In Husserl's phenomenology, the object or content of a thought, judgment, or perception, but as it is meant or intended in that thought.",
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 314
             },
             new Notion
             {
-                NotionId = SobornostId, Name = "Соборность (Sobornost)",
-                Description =
-                    "A spiritual community of many jointly living people, a key concept in Russian religious philosophy.",
+                NotionId = SobornostId, NameRu = "Соборность", NameEn = "Sobornost",
+                DescriptionRu = "Духовная общность многих совместно живущих людей, ключевое понятие в русской религиозной философии.",
+                DescriptionEn = "A spiritual community of many jointly living people, a key concept in Russian religious philosophy.",
                 CreatedAt = DefaultTime, UpdatedAt = DefaultTime, WikipediaId = 315
             }
         ];
@@ -722,7 +755,7 @@ public static class PhilosophySeedData
             new RelatedNotion
                 { NotionIdFrom = UbermenschId, NotionIdTo = WillToPowerId, RelationshipType = "RelatedConcept" },
             new RelatedNotion
-                { NotionIdFrom = DaseinId, NotionIdTo = AuthenticityId, RelationshipType = "RelatedConcept" }
+                { NotionIdFrom = DaseinId, NotionIdTo = AuthenticityId, RelationshipType = "RelatedConcept" },
         ];
     }
 }

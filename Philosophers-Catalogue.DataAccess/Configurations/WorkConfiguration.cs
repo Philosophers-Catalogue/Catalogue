@@ -10,8 +10,8 @@ public class WorkConfiguration : IEntityTypeConfiguration<Work>
     public void Configure(EntityTypeBuilder<Work> builder)
     {
         builder.HasGeneratedTsVectorColumn(w => w.Embeddings,
-                "russian",
-                work => new { work.Name, work.Description })
+                "english",
+                work => new { Name = work.NameEn, work.DescriptionEn })
             .HasIndex(w => w.Embeddings)
             .HasMethod("GIN");
 

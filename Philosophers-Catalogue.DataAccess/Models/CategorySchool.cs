@@ -8,7 +8,7 @@ using Philosophers_Catalogue.Models.Abstract;
 
 namespace Philosophers_Catalogue.Models;
 
-[Index(nameof(Name), IsUnique = true)]
+[Index(nameof(NameEn), IsUnique = true)]
 [PublicAPI]
 public class CategorySchool : IWikipediaItem
 {
@@ -17,12 +17,19 @@ public class CategorySchool : IWikipediaItem
 
     public int? WikipediaId { get; set; }
 
-    [MaxLength(150)]
-    public required string Name { get; set; }
+    [MaxLength(128)]
+    public required string NameEn { get; set; }
+
+    [MaxLength(128)]
+    public required string NameRu { get; set; }
 
     [Column(TypeName = "text")]
     [SuppressMessage("ReSharper", "EntityFramework.ModelValidation.UnlimitedStringLength")]
-    public string? Description { get; set; }
+    public string? DescriptionEn { get; set; }
+
+    [Column(TypeName = "text")]
+    [SuppressMessage("ReSharper", "EntityFramework.ModelValidation.UnlimitedStringLength")]
+    public string? DescriptionRu { get; set; }
 
     public Guid? ParentCategorySchoolId { get; set; }
     public Guid BranchId { get; set; }
@@ -31,7 +38,7 @@ public class CategorySchool : IWikipediaItem
 
     public Instant UpdatedAt { get; set; }
 
-    [ForeignKey(nameof(ParentCategorySchoolId))]    
+    [ForeignKey(nameof(ParentCategorySchoolId))]
     public CategorySchool? ParentCategorySchool { get; set; }
 
     public ICollection<CategorySchool> ChildCategoriesSchools { get; set; } = null!;

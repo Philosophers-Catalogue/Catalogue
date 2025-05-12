@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 using NodaTime;
 using Philosophers_Catalogue.Models.Abstract;
 
@@ -13,11 +14,19 @@ public class Notion : IWikipediaItem
 
     [Required]
     [MaxLength(255)]
-    public string Name { get; set; } = null!;
+    public string NameRu { get; set; } = null!;
 
     [Required]
+    [MaxLength(255)]
+    public string NameEn { get; set; } = null!;
+
     [Column(TypeName = "text")]
-    public string Description { get; set; } = null!;
+    [SuppressMessage("ReSharper", "EntityFramework.ModelValidation.UnlimitedStringLength")]
+    public string? DescriptionEn { get; set; }
+
+    [Column(TypeName = "text")]
+    [SuppressMessage("ReSharper", "EntityFramework.ModelValidation.UnlimitedStringLength")]
+    public string? DescriptionRu { get; set; }
 
     public Instant CreatedAt { get; set; }
 

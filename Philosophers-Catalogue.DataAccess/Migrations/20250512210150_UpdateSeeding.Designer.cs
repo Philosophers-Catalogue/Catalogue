@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NodaTime;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
@@ -14,9 +15,11 @@ using Philosophers_Catalogue.Models.Enums;
 namespace Philosophers_Catalogue.Migrations
 {
     [DbContext(typeof(PhilosophersCatalogueDbContext))]
-    partial class PhilosophersCatalogueDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250512210150_UpdateSeeding")]
+    partial class UpdateSeeding
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

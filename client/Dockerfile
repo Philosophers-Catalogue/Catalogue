@@ -1,12 +1,11 @@
-FROM node:24-alpine@sha256:37712740dc486f179b9540be1c6703cef3f805ea932573a007db748b71189afe AS base
+FROM node:24-alpine AS base
+
+RUN corepack enable
 
 WORKDIR /app
-
-RUN npm install -g pnpm
-
 COPY . .
 
-RUN pnpm install
+RUN pnpm install --frozen-lockfile
 
 EXPOSE 5173
 

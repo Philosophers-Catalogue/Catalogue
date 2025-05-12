@@ -6,7 +6,7 @@ using Philosophers_Catalogue.Models.Abstract;
 
 namespace Philosophers_Catalogue.Models;
 
-[Index(nameof(Name), IsUnique = true)]
+[Index(nameof(NameEn), IsUnique = true)]
 public class Philosopher : IWikipediaItem
 {
     public Guid Id { get; set; }
@@ -14,9 +14,13 @@ public class Philosopher : IWikipediaItem
     public int? WikipediaId { get; set; }
 
     [MaxLength(255)]
-    public required string Name { get; set; }
-    
-    public required string Bio { get; set; }
+    public required string NameEn { get; set; }
+
+    [MaxLength(255)]
+    public required string NameRu { get; set; }
+
+    public required string BioEn { get; set; }
+    public required string BioRu { get; set; }
 
     public int BirthDate { get; set; }
     public int? DeathDate { get; set; }
