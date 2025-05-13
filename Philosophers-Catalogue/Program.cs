@@ -17,6 +17,8 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddOpenApi();
 
+builder.Services.AddHttpContextAccessor();
+
 builder.Services.AddNpgsql<PhilosophersCatalogueDbContext>(
     builder.Configuration.GetValue<string>("ConnectionStrings:DefaultConnection"), opt =>
         opt 
@@ -42,6 +44,12 @@ builder.Services.AddQuartz(q =>
             .RepeatForever()));
 });
 
+builder.Services.AddCors(opt =>
+    opt.AddDefaultPolicy(corsPolicyBuilder => corsPolicyBuilder
+        .AllowAnyHeader()
+        .AllowAnyMethod()
+        .AllowAnyOrigin()));
+
 builder.Services.AddQuartzHostedService(opt => opt.WaitForJobsToComplete = true);
 
 builder.Services.AddHttpClient(WikipediaConstants.RuWikiClientName, opt =>
@@ -63,7 +71,7 @@ var app = builder.Build();
 await MigrateAsync();
 
 if (app.Environment.IsDevelopment())
-{
+{   
     app.MapOpenApi();
     app.MapScalarApiReference();
     app.SetDeveloperEndpoints();
@@ -72,6 +80,10 @@ if (app.Environment.IsDevelopment())
 app.MapIdentityApi<User>();
 
 app.UseHttpsRedirection();
+
+app.UseCors();
+
+app.UseAuthentication();
 
 await app.RunAsync();
 

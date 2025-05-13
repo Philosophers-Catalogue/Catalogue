@@ -1,11 +1,23 @@
-import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import { MainLayout } from "./pages/Layout";
+import { LoginPage } from "./pages/Login";
+import RegisterPage from "./pages/Register";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import theme from "./theme";
+import { HomePage } from "./pages/HomePage";
 
 function App() {
   return (
-    <Router>
-      <Routes></Routes>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Routes>
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+        </Route>
+      </Routes>
+    </ThemeProvider>
   );
 }
 
