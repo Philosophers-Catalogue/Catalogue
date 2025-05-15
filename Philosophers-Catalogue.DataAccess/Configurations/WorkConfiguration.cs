@@ -36,7 +36,7 @@ public class WorkConfiguration : IEntityTypeConfiguration<Work>
 
                     j.HasData(
                         new
-                        {
+                        {   
                             WorksId = PhilosophySeedData.RepublicId,
                             CategorySchoolsCategorySchoolId = PhilosophySeedData.PlatonismId
                         },

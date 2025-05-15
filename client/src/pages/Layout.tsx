@@ -13,7 +13,7 @@ import { useAppStore } from "../components/appStore";
 
 export const MainLayout: React.FC = () => {
   const navigate = useNavigate();
-  const isSignUp = useAppStore((state) => state.isSignUp); // ✅ fixed typo
+  const isSignUp = useAppStore((state) => state.isSignUp);
 
   return (
     <Box
@@ -57,14 +57,14 @@ export const MainLayout: React.FC = () => {
                 }}
                 onClick={() => navigate("/login")}
               >
-                Sign In
+                Войти
               </Button>
               <Button
                 variant="contained"
                 color="primary"
                 onClick={() => navigate("/register")}
               >
-                Sign Up
+                Зарегистрироваться
               </Button>
             </Box>
           )}

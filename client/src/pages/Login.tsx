@@ -85,7 +85,7 @@ export const LoginPage: React.FC = () => {
   };
 
   return (
-    <Container component="main" maxWidth="md">
+    <Container component="main" maxWidth="sm">
       <Paper
         elevation={3}
         sx={{

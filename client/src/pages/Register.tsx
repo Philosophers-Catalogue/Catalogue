@@ -75,7 +75,7 @@ const RegisterPage: React.FC = () => {
   };
 
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="sm">
       <Paper
         elevation={3}
         sx={{
