@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import {
   AppBar,
@@ -10,11 +10,11 @@ import {
   IconButton,
 } from "@mui/material";
 import { useAppStore } from "../components/appStore";
+import { RecommendationItem } from "../types/recommendationTypes";
 
 export const MainLayout: React.FC = () => {
   const navigate = useNavigate();
-  const isSignUp = useAppStore((state) => state.isSignUp);
-
+  const isAuthenticated = useAppStore((state) => state.isSignUp);
   return (
     <Box
       sx={{
@@ -46,8 +46,12 @@ export const MainLayout: React.FC = () => {
             </Typography>
           </Box>
 
-          {!isSignUp && (
+          {!isAuthenticated && (
             <Box sx={{ display: "flex", gap: 1 }}>
+              <Typography>
+                Зарегистрируйтесь, если хотите получать индивидуальные
+                рекомендации
+              </Typography>
               <Button
                 color="inherit"
                 variant="outlined"

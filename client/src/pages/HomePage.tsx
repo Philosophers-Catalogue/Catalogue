@@ -12,10 +12,10 @@ import {
 
 import { useEffect, useState } from "react";
 import { RecommendationItem } from "../types/recommendationTypes";
-import { RecommendationCard } from "../components/recommendationItem";
+import { RecommendationCard } from "../components/recommendationCard";
 import SearchIcon from "@mui/icons-material/Search";
 
-const mockRecommendations: RecommendationItem[] = [
+export const mockRecommendations: RecommendationItem[] = [
   {
     id: "1",
     title: "Философия для начинающих",

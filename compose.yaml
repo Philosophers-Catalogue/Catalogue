@@ -32,5 +32,17 @@
       - ./client:/app
       - /app/node_modules
 
+  philosophers-recommender-service:
+    build:
+      context: ./recommenderService
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - UVICORN_RELOAD=true
+    volumes:
+      - .:/app
+    tty: true
+
 volumes:
   philosophers-catalogue-db:

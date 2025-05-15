@@ -6,6 +6,6 @@ interface StoreProps {
 }
 
 export const useAppStore = create<StoreProps>((set) => ({
-  isSignUp: false,
+  isSignUp: true,
   setIsSignUp: (isSignUp) => set({ isSignUp }),
 }));
