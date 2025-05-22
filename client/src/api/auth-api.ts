@@ -27,7 +27,7 @@ export const register = async (data: RegisterRequest): Promise<void> => {
     return;
   } else if (response.status === 400) {
     const errorData: HttpValidationProblemDetails = await response.json();
-    throw { ...errorData, status: response.status };
+    throw new Error(errorData.detail ?? "Произошла ошибка при регистрации.");
   } else {
     const errorText = await response.text();
     throw {
