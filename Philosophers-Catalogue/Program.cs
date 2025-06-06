@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Philosophers_Catalogue;
 using Philosophers_Catalogue.Constants;
 using Philosophers_Catalogue.Controllers;
@@ -84,6 +86,20 @@ app.UseHttpsRedirection();
 app.UseCors();
 
 app.UseAuthentication();
+
+app.MapPost("/logout", async (SignInManager<IdentityUser> signInManager,
+        [FromBody] object? empty) =>
+    {
+        if (empty == null)
+            return Results.Unauthorized();
+
+        await signInManager.SignOutAsync();
+
+        return Results.Ok();
+
+    })
+    .WithOpenApi()
+    .RequireAuthorization();
 
 await app.RunAsync();
 
