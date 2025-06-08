@@ -1,4 +1,3 @@
-// src/pages/RecommendationDetailPage.tsx
 import "./RecommendationItemPage.css";
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
@@ -69,7 +68,7 @@ export const RecommendationDetailPage: React.FC = () => {
           const carouselData = mockRecommendations.filter(
             (rec) => rec.id.toString() !== id
           );
-          setRecommendationsForCarousel(carouselData);
+          setRecommendationsForCarousel(carouselData.slice(0, 10));
         } else {
           setError("Рекомендация не найдена.");
         }
@@ -231,7 +230,6 @@ export const RecommendationDetailPage: React.FC = () => {
           */}
             <Box sx={{ mx: -1 }}>
               {" "}
-              {/* Небольшой отрицательный margin для компенсации padding на слайдах */}
               <Slider {...carouselSettings}>
                 {recommendationsForCarousel.map((recItem) => (
                   <Box key={recItem.id} sx={{ p: 1 }}>
