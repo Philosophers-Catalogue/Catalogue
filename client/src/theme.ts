@@ -23,7 +23,6 @@ const theme = createTheme({
       fontSize: "2rem",
       fontWeight: 600,
     },
-    // ... другие настройки типографии
   },
   components: {
     MuiButton: {

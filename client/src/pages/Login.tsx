@@ -43,15 +43,13 @@ export const LoginPage: React.FC = () => {
     console.log("Login successful, token:", tokenResponse.accessToken);
     localStorage.setItem("accessToken", tokenResponse.accessToken);
     localStorage.setItem("refreshToken", tokenResponse.refreshToken);
-    // TODO: Обновить состояние аутентификации в приложении (например, через Context API)
-    navigate("/"); // Перенаправление на главную страницу после входа
+    navigate("/");
   };
 
   const onSubmit: SubmitHandler<LoginFormData> = async (data) => {
     setGlobalError(null);
     try {
-      // Для login можно передать параметры useCookies/useSessionCookies, если нужно
-      const tokenResponse = await apiLogin(data /*, { useCookies: true } */);
+      const tokenResponse = await apiLogin(data);
       handleLoginSuccess(tokenResponse);
     } catch (error) {
       const apiErr = error as ApiError;
