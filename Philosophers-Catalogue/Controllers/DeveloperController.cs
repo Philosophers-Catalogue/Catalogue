@@ -8,8 +8,7 @@ public static class DeveloperController
     {
         app.MapGet("/triggerParserJob", async (ISchedulerFactory schedulerFactory) =>
         {
-            var scheduler = await schedulerFactory.GetScheduler();
-            await scheduler.TriggerJob(new JobKey(nameof(WikipediaApiParser)));
+            var scheduler = await schedulerFactory.GetScheduler();await scheduler.TriggerJob(new JobKey(nameof(WikipediaApiParser)));
 
             return Results.Ok("Job was completed successfully.");
         });

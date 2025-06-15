@@ -21,6 +21,8 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddHttpContextAccessor();
 
+builder.Services.ConfigureApplicationCookie(opt => { opt.ExpireTimeSpan = TimeSpan.FromDays(1); });
+
 builder.Services.AddNpgsql<PhilosophersCatalogueDbContext>(
     builder.Configuration.GetValue<string>("ConnectionStrings:DefaultConnection"), opt =>
         opt 
